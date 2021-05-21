@@ -1,7 +1,7 @@
 const algoliaPlacesApiAppId = 'plU4N8HG6QWK';
 const algoliaPlacesApiKey = '1131438afb49f60a48ed468c5af189b8';
 const mapboxApiToken = 'pk.eyJ1Ijoia3Jva3JvYiIsImEiOiJja2YzcmcyNDkwNXVpMnRtZGwxb2MzNWtvIn0.69leM_6Roh26Ju7Lqb2pwQ';
-const taxiFareApiUrl = 'https://taxifare.lewagon.ai/predict_fare';
+const taxiFareApiUrl = 'https://taxifare.lewagon.ai/predict';
 
 const displayMap = (start, stop) => {
   mapboxgl.accessToken = mapboxApiToken;
@@ -189,7 +189,7 @@ const predict = () => {
         "dropoff_latitude": parseFloat(document.getElementById('dropoff_latitude').value) || 40.802,
         "dropoff_longitude": parseFloat(document.getElementById('dropoff_longitude').value) || -73.956,
         "passenger_count": parseInt(document.getElementById('passenger_count').value) || 2,
-        "pickup_datetime": '${document.getElementById(\'pickup_datetime\').value} UTC'
+        "pickup_datetime": `${document.getElementById('pickup_datetime').value} UTC`
       };
       let query = []
       Object.keys(data).forEach((param) => {
